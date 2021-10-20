@@ -31,7 +31,7 @@ function App() {
       setTransfers(transfers);
     };
     init();
-  },[]);
+  },[transfers]);
 
 
 // create transfer - modify data
@@ -44,7 +44,7 @@ function App() {
     await multiSigWallet.methods.createTransfer(transfer.amount, transfer.to).send({from: accounts[0]});
     setTransfers(transfers);
   }
-
+  
   
   // approve transfer - modify data
   const approveTransfer = async (transferId) => {
@@ -69,7 +69,7 @@ function App() {
     <div>
       <h1>Multisig Wallet</h1>
       <Header approvers={approvers} quorum={quorum} />
-      <NewTransfers createTransfer = {createTransfer} />
+      <NewTransfers createTransfer={createTransfer} newList={transfers} />
       <TransferList transfers={transfers} approveTransfer={approveTransfer}/>
     </div>
   );

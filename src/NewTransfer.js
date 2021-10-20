@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const NewTransfer = ({createTransfer}) => {
+const NewTransfer = ({createTransfer, newList}) => {
+    // state holds list of transfers
     const [ transfer, setTransfer ] = useState(undefined);
+    
+    // Refresh state so the list auto 
+    // refreshes with latest transactions
+    useEffect(() => {
+        setTransfer(transfer);
+        },[transfer]);
 
+    // form submission stores it its state 
     const submit = e => {
         e.preventDefault()
         createTransfer(transfer);
     }
 
+    // adds value of fields - on submission get added as 
+    // values for the transfer cuz state needs to be copied and replaced
+    // to be changed
     const updateTransfer = (e, field) => {
         const value = e.target.value;
         setTransfer({...transfer, [field]: value});
-    }
+    
+        }
+
 
     return (
         <div> 
@@ -30,7 +43,7 @@ const NewTransfer = ({createTransfer}) => {
                     type = "text"
                     onChange={e => updateTransfer(e, 'to')}   
                 />
-                            <button>Submit</button>
+                  <button>Submit</button>
             </form>
 
             
