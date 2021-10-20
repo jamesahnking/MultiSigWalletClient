@@ -26,9 +26,7 @@ const TransferList = ({transfers, approveTransfer}) => {
                             </td>
                             <td>{transfer.sent ? 'yes' : 'no'}</td>
                             <td> 
-                                <button 
-                                onClick={() => approveTransfer(transfer.id)}> Approve </button></td>
-                            {/* <td> <button onClick={() => approveTransfer(transfer.id)}> Approve </button></td> */}
+                                <button onClick={() => approveTransfer(transfer.id)} disabled={!transfer.sent === false}> Approve </button></td>
                         </tr>
                     ))}
                 </tbody>
@@ -36,5 +34,4 @@ const TransferList = ({transfers, approveTransfer}) => {
         </div>
     );
 }
-
 export default TransferList
