@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getWeb3, getMultiSigWallet } from './utils.js';
-import Header from './Header.js';
-import NewTransfers from './NewTransfer.js';
-import TransferList from './TransferList.js';
+import Header from './components/Header.js';
+import NewTransfers from './components/NewTransfer.js';
+import TransferList from './components/TransferList.js';
+import TransactionTable from './components/TransactionTable.js';
 
 function App() {
   // define the state
@@ -66,11 +67,14 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Multisig Wallet</h1>
       <Header approvers={approvers} quorum={quorum} />
-      <NewTransfers createTransfer={createTransfer} newList={transfers} />
-      <TransferList transfers={transfers} approveTransfer={approveTransfer}/>
+      <NewTransfers createTransfer={createTransfer}/>
+      {/* <TransferList transfers={transfers} approveTransfer={approveTransfer}/> */}
+      <TransactionTable transfers={transfers} approveTransfer={approveTransfer}/>
+
+
     </div>
   );
 }
