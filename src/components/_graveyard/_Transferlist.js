@@ -4,16 +4,16 @@ const TransferList = ({transfers, approveTransfer}) => {
     return (
         <div>
             <table>
-                <thead></thead>
+                <thead>
                     <tr>
                         <th>Id</th>
                         <th>Amount</th>
                         <th>To</th>
                         <th>approvals</th>
                         <th>sent</th>
-                        <th></th>
-
+                        <th>Approved</th>
                     </tr>
+                </thead>
                 <tbody>
                     {/* loop through list of transfers  */}
                     {transfers.map(transfer => (
@@ -21,12 +21,11 @@ const TransferList = ({transfers, approveTransfer}) => {
                             <td>{transfer.id}</td>
                             <td>{transfer.amount}</td>
                             <td>{transfer.to}</td>
-                            <td>
-                                {transfer.approvals}
-                            </td>
+                            <td>{transfer.approvals}</td>
                             <td>{transfer.sent ? 'yes' : 'no'}</td>
                             <td> 
-                                <button onClick={() => approveTransfer(transfer.id)} disabled={!transfer.sent === false}> Approve </button></td>
+                                <button onClick={() => approveTransfer(transfer.id)} disabled={!transfer.sent === false}> Approve </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

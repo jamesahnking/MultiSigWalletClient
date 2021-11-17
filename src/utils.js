@@ -2,6 +2,8 @@ import Web3 from "web3";
 import detectEthereumProvider from '@metamask/detect-provider';
 import MultiSigWallet from './contracts/MultiSigWallet.json';
 
+
+
 // Connect to the ethereum network through web3
 const getWeb3 = () => 
   new Promise( async (resolve, reject) => {
@@ -17,6 +19,10 @@ const getWeb3 = () =>
     }
     reject('Install Metamask');
   });
+
+
+
+
 
 // Bring in ABI so we can interact and do stuff   
 const getMultiSigWallet = async web3 => {
