@@ -13419,12 +13419,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xa9dDc9eC32512DA35A0838b9e9943Af8636B4b12",
-      "transactionHash": "0xf24e9c3fe97887530e6df72df8e75ee208d9d6878aec60e350142c71d0c73c59"
+      "address": "0xA4C8BEF55D53fa541044073dB413a9F0977c22ce",
+      "transactionHash": "0x249f8de76e4fc8acef67688c12f67836fbe1a245ba0172727282110eb3b3f48f"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-24T17:08:12.533Z",
+  "updatedAt": "2021-11-17T15:13:50.575Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

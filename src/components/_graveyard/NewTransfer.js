@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import{ Button, Typography, Container } from "@material-ui/core";
 
 const NewTransfer = ({createTransfer, newList}) => {
     // state holds list of transfers
@@ -27,8 +28,15 @@ const NewTransfer = ({createTransfer, newList}) => {
 
 
     return (
-        <div> 
-            <h2> Create Transfer</h2>
+        <Container>
+        <Typography
+            variant="h5"
+            color="textSecondary"
+            component="h2"
+            gutterBottom
+            >
+                Create Transfer
+            </Typography> 
             <form onSubmit={e => submit(e)}>
                 <label htmlFor="amount">Amount</label>
                 <input
@@ -43,12 +51,17 @@ const NewTransfer = ({createTransfer, newList}) => {
                     type = "text"
                     onChange={e => updateTransfer(e, 'to')}   
                 />
-                  <button>Submit</button>
+                <Button 
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    onClick={() => console.log('you clicked to transfer')}
+                  >
+                      Doovan
+                  </Button>
             </form>
-
-            
-        </div>
+        </Container>
     )
 }
 
-export default NewTransfer
+// export default NewTransfer

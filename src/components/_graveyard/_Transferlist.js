@@ -1,9 +1,7 @@
 import React from 'react'
-import{ Button, Typography, Container } from "@material-ui/core";
 
 const TransferList = ({transfers, approveTransfer}) => {
     return (
-        <Container>
         <div>
             <table>
                 <thead>
@@ -26,14 +24,13 @@ const TransferList = ({transfers, approveTransfer}) => {
                             <td>{transfer.approvals}</td>
                             <td>{transfer.sent ? 'yes' : 'no'}</td>
                             <td> 
-                                <Button variant="outlined" onClick={() => approveTransfer(transfer.id)} disabled={!transfer.sent === false}> Approve </Button>
+                                <button onClick={() => approveTransfer(transfer.id)} disabled={!transfer.sent === false}> Approve </button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
         </div>
-        </Container>
     );
 }
 export default TransferList

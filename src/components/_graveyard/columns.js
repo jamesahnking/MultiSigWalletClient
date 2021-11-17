@@ -32,6 +32,11 @@ export const COLUMNS = [
         Header: 'Sent',
         Footer: 'Sent',
         accessor: 'sent',
+        Cell: function Cell(cell) {
+            const { remove } = cell;
+            return <button onClick={() => remove(cell.row.index)}>Approve</button>;
+        }
+        
     },
 
 ]

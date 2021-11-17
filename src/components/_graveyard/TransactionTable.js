@@ -1,4 +1,5 @@
 // Creating a Basic Table in 6 Steps:
+// React Table Playlist - https://www.youtube.com/watch?v=YwP4NAZGskg&list=PLC3y8-rFHvwgWTSrDiwmUsl4ZvipOw9Cz
 // React Table Tutorial - 3 - Basic Table https://youtu.be/hson9BXU9F8
 // React Table Tutorial - 6 - Sorting https://youtu.be/zypbcG3ZVnc
 // 3. Use the data and columes defined to cerate a table instance using react-table
@@ -8,7 +9,18 @@ import MULTISIG_MOCK_DATA from './MULTISIG_MOCK_DATA.json' //
 import { COLUMNS } from './columns'
 import './table.css'
 
-const TransactionTable = () => {
+const TransactionTable = ({ transfers, approveTransfer }) => {
+    
+
+/*  
+'transfers' returns list or 'array' of transfers, thsi comes from 
+the smart contract.  a tranfer will have an id, amount, to, 
+approvals, and a sent paramenter.
+
+'approveTransfers' comtrolls the approval logic before a transaction
+is sent.
+*/
+
      /*  
     Use the useTable function to declare columes and rows for the table
     useTable accepts columns and data. columns are from columns.js
