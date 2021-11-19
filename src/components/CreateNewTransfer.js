@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import{ Typography, CardHeader,Button, IconButton, Card, CardContent } from "@material-ui/core";
+import{ Typography, CardHeader,Button, IconButton, Card, List, ListItem,ListItemText, CardContent } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import { makeStyles } from '@material-ui/core'
-import { Paper } from '@material-ui/core';
 import { Avatar } from '@material-ui/core';
-import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import { Box } from '@mui/system';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
 
-const CreateNewTransfer = ({createTransfer, newList, quorum, getAccount, approvers}) => {
-    // state holds list of transfers
-    const [ transfer, setTransfer ] = useState(undefined);
 
     // instantiate css tweaks for button using makeStyle
     // useStyles is a hook now. you made a hook ;=) 
@@ -48,13 +45,53 @@ const CreateNewTransfer = ({createTransfer, newList, quorum, getAccount, approve
         }
 
     })
-    
-    
-    // instatiate state for error messaging
-    // false beacuse the erros shoudlnt be seen 
-    // but... there will be a check after the form is submitted
-    const [amountError, setAmountError] = useState('false')
-    const [recipientError, setRecipientError] = useState('false')
+
+
+
+function SimpleDialog(props) {
+    const {onClose, selectedValue, open } = props
+
+    const handleClose = () => {
+        onClose(selectedValue)
+    }
+
+    const handleListItemClick = (value) => {
+        onClose(value)
+    }
+
+        return (
+            <Dialog onClose={handleClose} open={open}>
+            <DialogTitle>
+                How does creating a transfer work? 
+            </DialogTitle>
+
+            <List>
+                <ListItem button onClick={() => handleListItemClick('test')}>
+                    <ListItemText primary='Approved addresses can create a transfer by specifying an amount and a recipient. 
+
+Each approved address can also authorize a transfer. Each transfer needs two approvals to release and send a payment.'/> 
+                    
+                </ListItem>
+            </List>
+        </Dialog>
+    )
+}
+
+
+
+
+const CreateNewTransfer = ({createTransfer, approvers}) => {
+    // state holds list of transfers
+    const [ transfer, setTransfer ] = useState(undefined);
+
+    // Modal Constants
+    const [open, setOpen] = React.useState(false);
+    const [selectedValue, setSelectedValue] = React.useState(false);
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
 
 
     // Refresh state so the list auto 
@@ -77,7 +114,6 @@ const CreateNewTransfer = ({createTransfer, newList, quorum, getAccount, approve
     const updateTransfer = (e, field) => {
         const value = e.target.value;
         setTransfer({...transfer, [field]: value});
-    
         }
 
     const classes = useStyles();
@@ -93,16 +129,19 @@ const CreateNewTransfer = ({createTransfer, newList, quorum, getAccount, approve
                 </Avatar>
             }
                     action={
-                        <IconButton aria-label="settings" >
+                        <IconButton aria-label="settings" onClick={ handleOpen }> 
                         <HelpOutlineIcon />
                         </IconButton>
                     }
-                    title="Owner:"
-                    subheader={`approvers[0]`}
+                    title="Transfer Funds"
+                    subheader=''
                 /> {/* CardHeader end */}
 
-
-
+                <SimpleDialog 
+                selectedValue={selectedValue}
+                open={open}
+                onClose={handleClose}
+                /> 
 
                 <CardContent>
                   {/* <Paper> */}

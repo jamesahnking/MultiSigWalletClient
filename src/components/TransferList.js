@@ -6,9 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import{ Button, Typography, Container } from "@material-ui/core";
+import{ Button } from "@material-ui/core";
 
-const TransferList = ({transfers, approveTransfer}) => {
+const TransferList = ({transfers, approveTransfer,approvers}) => {
+
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -30,7 +31,7 @@ const TransferList = ({transfers, approveTransfer}) => {
                     {transfers.map(transfer => (
                       <TableRow key={transfer.id}>  
                             <TableCell align="center">{transfer.id}</TableCell>
-                            <TableCell align="center">{transfer.amount}</TableCell>
+                            <TableCell align="center">{transfer.amount}</TableCell>                            
                             <TableCell align="center">{transfer.to}</TableCell>
                             <TableCell align="center">{transfer.approvals}</TableCell>
                             <TableCell align="center">{transfer.sent ? 'yes' : 'no'}</TableCell>
