@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Multisig Wallet Quorum & Transfer Application Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What type of dapp is this?
+A multi-signature wallet crypto wallet that runs on an Ethereum based blockchain.
 
-## Available Scripts
+![SMMultiSig](https://user-images.githubusercontent.com/4562552/159700355-910f7c93-69d6-4071-a4fd-2a20a705d799.png)
 
-In the project directory, you can run:
+## What technolgies were used to build and test this dapp ? 
 
-### `npm start`
+- React
+- Node
+- JavaScript 
+- Solidity
+- CSS 
+- Material UI 
+- Truffle 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How does the wallet work? 
+- The MultiSig Quorum & Transfer MVP is a 2-of-3 signature address application. 
+- Each address that is apart of the quorum can create a transfer by specifying an amount and a recipient.
+- Each approved address can also authorize a transfer. 
+- Each transfer needs two approvals to release and send a payment.
+- Any unauthorized address that attempts to perform the actions of a member will be denied
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Why are Multi-Sig wallets important? 
+- Funds stored in a multi-sig wallet can be moved only if the multiple signatures are provided at the same time. 
+- Each signature is generated through the use of a different private keys and designated the right to approve or propose and approve transactions and transfers of funds.
+- The most common signature combination is 2-of-3. It means only two signatures are enough to access or perform an operation on the funds of a 3-signature address. 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What is a Quorum? 
+The minimum number of designated addresses that must approve a transfer before it can be sent to a recipient.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
